@@ -1,0 +1,30 @@
+DELETE FROM user_roles;
+DELETE FROM restaurants;
+DELETE FROM users;
+DELETE FROM menu;
+DELETE FROM voted_users;
+ALTER SEQUENCE global_seq RESTART WITH 0;
+
+INSERT INTO users (name)
+VALUES ('User');
+
+INSERT INTO users (name)
+VALUES ('Admin');
+
+INSERT INTO user_roles (role, user_id) VALUES
+  ('ROLE_USER', 0),
+  ('ROLE_ADMIN', 1);
+
+INSERT INTO restaurants ( name, count_votes) VALUES
+  ('Первый', 0),
+  ('Второй', 0),
+  ('Третий', 0);
+
+INSERT INTO menu (name, r_id, price) VALUES
+  ('sausage', 1, 100),
+  ('soup', 1, 200),
+  ('carrot', 1, 29),
+  ('potatoes', 2, 90),
+  ('biscuit', 2, 54),
+  ('coffee', 2, 89),
+  ('tea', 3, 101);
